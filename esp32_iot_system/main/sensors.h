@@ -42,9 +42,16 @@ typedef struct {
 
 // Cấu trúc dữ liệu tổng hợp cho tất cả sensors
 typedef struct {
-    float temperature;
-    float humidity;
-    float pressure;
+    // AHT22 data
+    float aht22_temperature;
+    float aht22_humidity;
+    bool aht22_available;
+    
+    // BMP180 data  
+    float bmp180_temperature;
+    float bmp180_pressure;
+    bool bmp180_available;
+    
     uint32_t timestamp;
 } sensor_data_t;
 

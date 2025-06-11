@@ -1,11 +1,14 @@
-// Global variables
 let autoRefreshInterval = null;
 let isAutoRefreshEnabled = true;
 
-// DOM elements
-const temperatureElement = document.getElementById('temperature');
-const humidityElement = document.getElementById('humidity');
-const pressureElement = document.getElementById('pressure');
+const aht22TemperatureElement = document.getElementById('aht22-temperature');
+const aht22HumidityElement = document.getElementById('aht22-humidity');
+const aht22StatusElement = document.getElementById('aht22-status');
+
+const bmp180TemperatureElement = document.getElementById('bmp180-temperature');
+const bmp180PressureElement = document.getElementById('bmp180-pressure');
+const bmp180StatusElement = document.getElementById('bmp180-status');
+
 const lastUpdateElement = document.getElementById('lastUpdate');
 const relayStatusElement = document.getElementById('relayStatus');
 const relayModeElement = document.getElementById('relayMode');
@@ -14,36 +17,47 @@ const autoRefreshStatusElement = document.getElementById('autoRefreshStatus');
 const toastElement = document.getElementById('toast');
 const toastMessageElement = document.getElementById('toastMessage');
 
-// Initialize the application
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', async function() {
     console.log('ESP32 IoT System initialized');
+    await loadInitialThresholds();
+    
     refreshData();
     startAutoRefresh();
 });
 
-// Show toast notification
+async function loadInitialThresholds() {
+    try {
+        const response = await fetch('/api/relay');
+        if (response.ok) {
+            const data = await response.json();
+            document.getElementById('tempHigh').value = data.threshold_high;
+            document.getElementById('tempLow').value = data.threshold_low;
+        }
+    } catch (error) {
+        console.error('Error loading initial thresholds:', error);
+        document.getElementById('tempHigh').value = 30;
+        document.getElementById('tempLow').value = 25;
+    }
+}
+
 function showToast(message, type = 'info') {
     toastMessageElement.textContent = message;
     toastElement.className = `toast ${type}`;
-    
-    // Show toast
     setTimeout(() => {
         toastElement.classList.remove('hidden');
     }, 100);
     
-    // Hide toast after 3 seconds
     setTimeout(() => {
         toastElement.classList.add('hidden');
     }, 3000);
 }
 
-// Format timestamp
-function formatTimestamp(timestamp) {
-    const date = new Date(timestamp * 1000);
-    return date.toLocaleTimeString();
+function formatTimestamp() {
+    const now = new Date();
+    return now.toLocaleTimeString(); 
 }
 
-// Fetch sensor data
 async function fetchSensorData() {
     try {
         const response = await fetch('/api/sensors');
@@ -52,25 +66,46 @@ async function fetchSensorData() {
         }
         const data = await response.json();
         
-        // Update UI
-        temperatureElement.textContent = data.temperature.toFixed(1);
-        humidityElement.textContent = data.humidity.toFixed(1);
-        pressureElement.textContent = data.pressure.toFixed(1);
-        lastUpdateElement.textContent = formatTimestamp(data.timestamp);
+        if (data.aht22.available) {
+            aht22TemperatureElement.textContent = data.aht22.temperature.toFixed(1);
+            aht22HumidityElement.textContent = data.aht22.humidity.toFixed(1);
+            aht22StatusElement.textContent = 'Online';
+            aht22StatusElement.className = 'sensor-value online';
+        } else {
+            aht22TemperatureElement.textContent = '--';
+            aht22HumidityElement.textContent = '--';
+            aht22StatusElement.textContent = 'Offline';
+            aht22StatusElement.className = 'sensor-value offline';
+        }
         
-        // Update connection status
+        if (data.bmp180.available) {
+            bmp180TemperatureElement.textContent = data.bmp180.temperature.toFixed(1);
+            bmp180PressureElement.textContent = data.bmp180.pressure.toFixed(1);
+            bmp180StatusElement.textContent = 'Online';
+            bmp180StatusElement.className = 'sensor-value online';
+        } else {
+            bmp180TemperatureElement.textContent = '--';
+            bmp180PressureElement.textContent = '--';
+            bmp180StatusElement.textContent = 'Offline';
+            bmp180StatusElement.className = 'sensor-value offline';
+        }
+        
+        lastUpdateElement.textContent = formatTimestamp();
+        
         connectionStatusElement.textContent = 'Connected';
         connectionStatusElement.className = 'status-value connected';
         
         return data;
     } catch (error) {
         console.error('Error fetching sensor data:', error);
-        temperatureElement.textContent = '--';
-        humidityElement.textContent = '--';
-        pressureElement.textContent = '--';
+        aht22TemperatureElement.textContent = '--';
+        aht22HumidityElement.textContent = '--';
+        aht22StatusElement.textContent = 'Error';
+        bmp180TemperatureElement.textContent = '--';
+        bmp180PressureElement.textContent = '--';
+        bmp180StatusElement.textContent = 'Error';
         lastUpdateElement.textContent = 'Error';
         
-        // Update connection status
         connectionStatusElement.textContent = 'Disconnected';
         connectionStatusElement.className = 'status-value disconnected';
         
@@ -78,7 +113,6 @@ async function fetchSensorData() {
     }
 }
 
-// Fetch relay status
 async function fetchRelayStatus() {
     try {
         const response = await fetch('/api/relay');
@@ -101,7 +135,6 @@ async function fetchRelayStatus() {
     }
 }
 
-// Update relay status UI
 function updateRelayStatusUI(state) {
     if (state === 1) {
         relayStatusElement.textContent = 'ON';
@@ -112,7 +145,6 @@ function updateRelayStatusUI(state) {
     }
 }
 
-// Update relay mode UI
 function updateRelayModeUI(mode) {
     const manualControls = document.getElementById('manualControls');
     const manualBtn = document.getElementById('manualBtn');
@@ -133,18 +165,14 @@ function updateRelayModeUI(mode) {
     }
 }
 
-// Update threshold display
 function updateThresholdDisplay(tempHigh, tempLow) {
     document.getElementById('currentHigh').textContent = tempHigh.toFixed(1);
     document.getElementById('currentLow').textContent = tempLow.toFixed(1);
-    document.getElementById('tempHigh').value = tempHigh;
-    document.getElementById('tempLow').value = tempLow;
 }
 
-// Set relay state
+
 async function setRelay(state) {
     try {
-        // Show loading state
         relayStatusElement.classList.add('loading');
         
         const response = await fetch('/api/relay', {
@@ -171,69 +199,20 @@ async function setRelay(state) {
     } catch (error) {
         console.error('Error setting relay state:', error);
         showToast('Failed to control relay', 'error');
-        
-        // Refresh relay status to get current state
         fetchRelayStatus();
     } finally {
         relayStatusElement.classList.remove('loading');
     }
 }
 
-// Configure WiFi
-async function configureWifi(event) {
-    event.preventDefault();
-    
-    const ssid = document.getElementById('ssid').value;
-    const password = document.getElementById('password').value;
-    
-    if (!ssid || !password) {
-        showToast('Please enter both SSID and password', 'warning');
-        return;
-    }
-    
-    try {
-        const response = await fetch('/api/wifi', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                ssid: ssid,
-                password: password
-            })
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const data = await response.json();
-        
-        if (data.success) {
-            showToast(data.message || 'WiFi credentials saved successfully', 'success');
-            // Clear form
-            document.getElementById('ssid').value = '';
-            document.getElementById('password').value = '';
-        } else {
-            throw new Error('Failed to save WiFi credentials');
-        }
-        
-    } catch (error) {
-        console.error('Error configuring WiFi:', error);
-        showToast('Failed to save WiFi credentials', 'error');
-    }
-}
-
-// Refresh all data
 async function refreshData() {
     try {
-        // Add loading animation to sensor values
-        temperatureElement.classList.add('loading');
-        humidityElement.classList.add('loading');
-        pressureElement.classList.add('loading');
+        aht22TemperatureElement.classList.add('loading');
+        aht22HumidityElement.classList.add('loading');
+        bmp180TemperatureElement.classList.add('loading');
+        bmp180PressureElement.classList.add('loading');
         relayStatusElement.classList.add('loading');
         
-        // Fetch all data concurrently
         const [sensorData, relayData] = await Promise.all([
             fetchSensorData(),
             fetchRelayStatus()
@@ -245,15 +224,14 @@ async function refreshData() {
         console.error('Error refreshing data:', error);
         showToast('Failed to refresh data', 'error');
     } finally {
-        // Remove loading animation
-        temperatureElement.classList.remove('loading');
-        humidityElement.classList.remove('loading');
-        pressureElement.classList.remove('loading');
+        aht22TemperatureElement.classList.remove('loading');
+        aht22HumidityElement.classList.remove('loading');
+        bmp180TemperatureElement.classList.remove('loading');
+        bmp180PressureElement.classList.remove('loading');
         relayStatusElement.classList.remove('loading');
     }
 }
 
-// Start auto-refresh
 function startAutoRefresh() {
     if (autoRefreshInterval) {
         clearInterval(autoRefreshInterval);
@@ -263,12 +241,11 @@ function startAutoRefresh() {
         if (isAutoRefreshEnabled) {
             refreshData();
         }
-    }, 5000); // Refresh every 5 seconds
+    }, 1000);
     
     updateAutoRefreshStatus();
 }
 
-// Toggle auto-refresh
 function toggleAutoRefresh() {
     isAutoRefreshEnabled = !isAutoRefreshEnabled;
     updateAutoRefreshStatus();
@@ -285,7 +262,6 @@ function toggleAutoRefresh() {
     }
 }
 
-// Update auto-refresh status UI
 function updateAutoRefreshStatus() {
     if (isAutoRefreshEnabled) {
         autoRefreshStatusElement.textContent = 'ON';
@@ -296,43 +272,34 @@ function updateAutoRefreshStatus() {
     }
 }
 
-// Handle visibility change to pause/resume auto-refresh when tab is not visible
 document.addEventListener('visibilitychange', function() {
     if (document.hidden) {
-        // Tab is not visible, pause auto-refresh
         if (autoRefreshInterval) {
             clearInterval(autoRefreshInterval);
             autoRefreshInterval = null;
         }
     } else {
-        // Tab is visible again, resume auto-refresh if enabled
         if (isAutoRefreshEnabled && !autoRefreshInterval) {
             startAutoRefresh();
         }
     }
 });
 
-// Add keyboard shortcuts
 document.addEventListener('keydown', function(event) {
-    // Ctrl+R or F5 for refresh
     if ((event.ctrlKey && event.key === 'r') || event.key === 'F5') {
         event.preventDefault();
         refreshData();
         showToast('Data refreshed manually', 'info');
     }
     
-    // Space bar to toggle relay
     if (event.code === 'Space' && event.target.tagName !== 'INPUT') {
         event.preventDefault();
-        // Get current relay state and toggle
         const currentState = relayStatusElement.textContent === 'ON' ? 1 : 0;
         setRelay(currentState === 1 ? 0 : 1);
     }
 });
 
-// Add connection monitoring
 function monitorConnection() {
-    // Try to fetch data every 30 seconds to check connection
     setInterval(async () => {
         try {
             const response = await fetch('/api/sensors', {
@@ -353,10 +320,8 @@ function monitorConnection() {
     }, 30000);
 }
 
-// Start connection monitoring
 monitorConnection();
 
-// Set relay mode
 async function setRelayMode(mode) {
     try {
         const response = await fetch('/api/relay', {
@@ -384,13 +349,10 @@ async function setRelayMode(mode) {
     } catch (error) {
         console.error('Error setting relay mode:', error);
         showToast('Failed to change relay mode', 'error');
-        
-        // Refresh relay status to get current state
         fetchRelayStatus();
     }
 }
 
-// Set temperature thresholds
 async function setThresholds(event) {
     event.preventDefault();
     
@@ -438,10 +400,8 @@ async function setThresholds(event) {
     }
 }
 
-// Export functions to global scope for HTML onclick handlers
 window.setRelay = setRelay;
 window.setRelayMode = setRelayMode;
 window.setThresholds = setThresholds;
-window.configureWifi = configureWifi;
 window.refreshData = refreshData;
 window.toggleAutoRefresh = toggleAutoRefresh; 

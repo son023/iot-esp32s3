@@ -1,4 +1,4 @@
-/* * Data converted from C:/Users/Admin/Desktop/esp32_iot_system/build/esp-idf/mbedtls/x509_crt_bundle
+/* * Data converted from C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/esp-idf/mbedtls/x509_crt_bundle
  */
 .data
 #if !defined (__APPLE__) && !defined (__linux__)

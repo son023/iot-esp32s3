@@ -1,0 +1,1221 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x28 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x400556b0
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (26) boot: ESP-IDF v5.4.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Jun 11 2025 12:08:58[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c0a0020 size=256bch (153276) map[0m
+[0;32mI (116) esp_image: segment 1: paddr=000356e4 vaddr=3fc9b000 size=04a24h ( 18980) load[0m
+[0;32mI (120) esp_image: segment 2: paddr=0003a110 vaddr=40374000 size=05f08h ( 24328) load[0m
+[0;32mI (126) esp_image: segment 3: paddr=00040020 vaddr=42000020 size=963b0h (615344) map[0m
+[0;32mI (236) esp_image: segment 4: paddr=000d63d8 vaddr=40379f08 size=11058h ( 69720) load[0m
+[0;32mI (251) esp_image: segment 5: paddr=000e7438 vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (261) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (261) boot: Disabling RNG early entropy source...[0m
+[0;32mI (271) cpu_start: Multicore app[0m
+[0;32mI (280) cpu_start: Pro cpu start user code[0m
+[0;32mI (281) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (281) app_init: Application information:[0m
+[0;32mI (281) app_init: Project name:     esp32_iot_system[0m
+[0;32mI (285) app_init: App version:      6617b39-dirty[0m
+[0;32mI (290) app_init: Compile time:     Jun 11 2025 12:06:56[0m
+[0;32mI (295) app_init: ELF file SHA256:  3cda47370...[0m
+[0;32mI (299) app_init: ESP-IDF:          v5.4.1-dirty[0m
+[0;32mI (303) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (307) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (311) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (315) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (321) heap_init: At 3FCA36F8 len 00046018 (280 KiB): RAM[0m
+[0;32mI (326) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (332) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (337) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (343) spi_flash: detected chip: generic[0m
+[0;32mI (346) spi_flash: flash io: dio[0m
+[0;33mW (349) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (361) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (371) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (377) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (384) main_task: Started on CPU0[0m
+[0;32mI (387) main_task: Calling app_main()[0m
+[0;32mI (390) MAIN: Starting ESP32 IoT System[0m
+[0;32mI (414) NVS_STORAGE: NVS storage initialized[0m
+[0;32mI (416) pp: pp rom version: e7ae62f[0m
+[0;32mI (417) net80211: net80211 rom version: e7ae62f[0m
+[0;32mI (419) wifi:wifi driver task: 3fcaf064, prio:23, stack:6656, core=0[0m
+[0;32mI (431) wifi:wifi firmware version: 79fa3f41ba[0m
+[0;32mI (431) wifi:wifi certification version: v7.0[0m
+[0;32mI (432) wifi:config NVS flash: enabled[0m
+[0;32mI (433) wifi:config nano formatting: disabled[0m
+[0;32mI (437) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (442) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (446) wifi:Init management short buffer num: 32[0m
+[0;32mI (450) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (454) wifi:Init static tx FG buffer num: 2[0m
+[0;32mI (458) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (462) wifi:Init static rx buffer num: 10[0m
+[0;32mI (466) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (471) wifi_init: rx ba win: 6[0m
+[0;32mI (473) wifi_init: accept mbox: 6[0m
+[0;32mI (476) wifi_init: tcpip mbox: 32[0m
+[0;32mI (479) wifi_init: udp mbox: 6[0m
+[0;32mI (482) wifi_init: tcp mbox: 6[0m
+[0;32mI (484) wifi_init: tcp tx win: 5760[0m
+[0;32mI (488) wifi_init: tcp rx win: 5760[0m
+[0;32mI (491) wifi_init: tcp mss: 1440[0m
+[0;32mI (494) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (497) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;33mW (502) wifi:Password length matches WPA2 standards, authmode threshold changes from OPEN to WPA2[0m
+[0;32mI (511) phy_init: phy_version 700,8582a7fd,Feb 10 2025,20:13:11[0m
+[0;32mI (552) wifi:mode : sta (ec:da:3b:5e:22:68)[0m
+[0;32mI (553) wifi:enable tsf[0m
+[0;32mI (554) WIFI: WiFi init finished.[0m
+[0;32mI (564) wifi:new:<2,0>, old:<1,0>, ap:<255,255>, sta:<2,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (565) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (578) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (584) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (693) wifi:connected with TANG4, aid = 11, channel 2, BW20, bssid = 94:28:6f:1b:be:a1[0m
+[0;32mI (694) wifi:security: WPA2-PSK, phy: bgn, rssi: -42[0m
+[0;32mI (697) wifi:pm start, type: 1[0m
+
+[0;32mI (698) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (706) wifi:set rx beacon pti, rx_bcn_pti: 0, bcn_timeout: 25000, mt_pti: 0, mt_time: 10000[0m
+[0;32mI (723) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (2879) wifi:<ba-add>idx:0 (ifx:0, 94:28:6f:1b:be:a1), tid:0, ssn:2, winSize:64[0m
+[0;32mI (3906) esp_netif_handlers: sta ip: 192.168.5.10, mask: 255.255.255.0, gw: 192.168.5.1[0m
+[0;32mI (3907) WIFI: Got IP:192.168.5.10[0m
+[0;32mI (3907) WIFI: Connected to AP SSID:TANG4[0m
+[0;32mI (3910) SENSORS: I2C initialized successfully[0m
+[1;31mE (4414) SENSORS: AHT20 initialization failed[0m
+[1;31mE (4614) SENSORS: Failed to read BMP180 chip ID[0m
+[0;32mI (4615) gpio: GPIO[47]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+[0;32mI (4616) RELAY: Relay control initialized successfully[0m
+[0;32mI (4621) NVS_STORAGE: Auto mode loaded: 1[0m
+[0;32mI (4625) RELAY: Relay mode set to AUTO[0m
+[0;32mI (4628) NVS_STORAGE: Relay state loaded: 0[0m
+[0;32mI (4632) RELAY: 🔌 RELAY_1 (GPIO47) set to OFF[0m
+[0;33mW (4636) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (4643) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (4650) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (4657) MAIN: Loaded temperature thresholds: High=30.0°C, Low=25.0°C[0m
+[0;32mI (4663) WEB_SERVER: Starting server on port: '80'[0m
+[0;32mI (4670) WEB_SERVER: Registering URI handlers[0m
+[0;32mI (4672) WEB_SERVER: Web server started successfully[0m
+[0;32mI (4677) MAIN: Sensor auto control task started[0m
+[1;31mE (4677) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (4685) SENSORS: Failed to read AHT20[0m
+[0;32mI (4688) MAIN: System initialized successfully[0m
+[1;31mE (4689) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (4697) SENSORS: Failed to read BMP180[0m
+[0;33mW (4701) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (4708) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (4709) main_task: Returned from app_main()[0m
+[0;32mI (4714) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (4725) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (9746) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (9746) SENSORS: Failed to read AHT20[0m
+[1;31mE (9747) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (9747) SENSORS: Failed to read BMP180[0m
+[0;33mW (9751) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (9758) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (9765) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (9771) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;33mW (9783) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (9784) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (9791) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (13269) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (13270) SENSORS: Failed to read AHT20[0m
+[1;31mE (13270) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (13271) SENSORS: Failed to read BMP180[0m
+[0;33mW (13275) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (13282) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (13289) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (13296) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;33mW (13308) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (13309) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (13315) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;33mW (14094) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (14095) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (14097) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (14109) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (14109) SENSORS: Failed to read AHT20[0m
+[1;31mE (14112) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (14117) SENSORS: Failed to read BMP180[0m
+[0;33mW (14120) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (14127) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (14134) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (14141) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (14731) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (14731) SENSORS: Failed to read AHT20[0m
+[1;31mE (14732) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (14733) SENSORS: Failed to read BMP180[0m
+[0;33mW (14736) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (14744) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (14750) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (14757) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (19160) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (19161) SENSORS: Failed to read AHT20[0m
+[1;31mE (19161) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (19162) SENSORS: Failed to read BMP180[0m
+[0;33mW (19166) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (19173) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (19180) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (19187) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;33mW (19198) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (19199) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (19206) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (24178) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (24179) SENSORS: Failed to read AHT20[0m
+[1;31mE (24179) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (24181) SENSORS: Failed to read BMP180[0m
+[0;33mW (24184) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (24191) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (24197) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (24205) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;33mW (24215) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (24217) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (24224) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (24763) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (24763) SENSORS: Failed to read AHT20[0m
+[1;31mE (24764) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (24765) SENSORS: Failed to read BMP180[0m
+[0;33mW (24768) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (24776) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (24782) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (24789) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;33mW (29195) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (29196) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (29198) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (29210) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (29210) SENSORS: Failed to read AHT20[0m
+[1;31mE (29213) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (29218) SENSORS: Failed to read BMP180[0m
+[0;33mW (29221) NVS_STORAGE: High temp threshold not found, setting default to 30°C[0m
+[0;33mW (29228) NVS_STORAGE: Low temp threshold not found, setting default to 25°C[0m
+[0;32mI (29235) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (29242) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (29916) NVS_STORAGE: Temperature thresholds saved: High=30.0°C, Low=25.0°C[0m
+[1;31mE (32728) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (32728) SENSORS: Failed to read AHT20[0m
+[1;31mE (32729) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (32730) SENSORS: Failed to read BMP180[0m
+[0;32mI (32734) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (32740) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (32753) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[1;31mE (34795) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (34795) SENSORS: Failed to read AHT20[0m
+[1;31mE (34796) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (34797) SENSORS: Failed to read BMP180[0m
+[0;32mI (34802) NVS_STORAGE: Temperature thresholds loaded: High=30.0°C, Low=25.0°C[0m
+[0;32mI (34808) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (37496) NVS_STORAGE: Temperature thresholds saved: High=35.0°C, Low=25.0°C[0m
+[1;31mE (37798) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (37798) SENSORS: Failed to read AHT20[0m
+[1;31mE (37799) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (37799) SENSORS: Failed to read BMP180[0m
+[0;32mI (37804) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (37810) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (37823) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (39544) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (39550) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (39550) SENSORS: Failed to read AHT20[0m
+[1;31mE (39550) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (39553) SENSORS: Failed to read BMP180[0m
+[0;32mI (39558) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (39564) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (44558) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (44565) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (44565) SENSORS: Failed to read AHT20[0m
+[1;31mE (44566) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (44567) SENSORS: Failed to read BMP180[0m
+[0;32mI (44572) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (44578) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (44813) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (44813) SENSORS: Failed to read AHT20[0m
+[1;31mE (44814) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (44815) SENSORS: Failed to read BMP180[0m
+[0;32mI (44820) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (44826) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (49574) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (49580) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (49580) SENSORS: Failed to read AHT20[0m
+[1;31mE (49581) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (49583) SENSORS: Failed to read BMP180[0m
+[0;32mI (49588) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (49594) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (54591) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (54698) SENSORS: AHT22 - Temp: 34.9°C, Humidity: 76.7%[0m
+[1;31mE (54699) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (54699) SENSORS: Failed to read BMP180[0m
+[0;32mI (54702) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (54708) SENSORS: Auto control using AHT22 temperature: 34.9°C[0m
+[0;32mI (54933) SENSORS: AHT22 - Temp: 35.0°C, Humidity: 76.7%[0m
+[1;31mE (54934) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (54934) SENSORS: Failed to read BMP180[0m
+[0;32mI (54937) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (54943) SENSORS: Auto control using AHT22 temperature: 35.0°C[0m
+[0;32mI (59609) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (59716) SENSORS: AHT22 - Temp: 35.2°C, Humidity: 77.4%[0m
+[1;31mE (59717) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (59717) SENSORS: Failed to read BMP180[0m
+[0;32mI (59720) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (59726) RELAY: AUTO: Temperature 35.2°C >= 35.0°C, turning relay ON[0m
+[0;32mI (59733) RELAY: 🔌 RELAY_1 (GPIO47) set to ON[0m
+[0;32mI (59738) NVS_STORAGE: Relay state saved: 1[0m
+[0;32mI (59741) RELAY: AUTO: Relay state changed to ON and saved to NVS[0m
+[0;32mI (59747) SENSORS: Auto control using AHT22 temperature: 35.2°C[0m
+[0;32mI (64627) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (64633) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (64633) SENSORS: Failed to read AHT20[0m
+[1;31mE (64634) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (64636) SENSORS: Failed to read BMP180[0m
+[0;32mI (64641) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (64647) RELAY: AUTO: Temperature 25.0°C <= 25.0°C, turning relay OFF[0m
+[0;32mI (64654) RELAY: 🔌 RELAY_1 (GPIO47) set to OFF[0m
+[0;32mI (64659) NVS_STORAGE: Relay state saved: 0[0m
+[0;32mI (64662) RELAY: AUTO: Relay state changed to OFF and saved to NVS[0m
+[0;32mI (64668) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (64949) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (64950) SENSORS: Failed to read AHT20[0m
+[1;31mE (64950) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (64951) SENSORS: Failed to read BMP180[0m
+[0;32mI (64956) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (64962) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (69644) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (69752) SENSORS: AHT22 - Temp: -50.0°C, Humidity: 0.0%[0m
+[1;31mE (69753) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (69753) SENSORS: Failed to read BMP180[0m
+[0;32mI (69756) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (69762) SENSORS: Auto control using AHT22 temperature: -50.0°C[0m
+[0;32mI (69924) SENSORS: AHT22 - Temp: 36.1°C, Humidity: 79.4%[0m
+[1;31mE (69925) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (69925) SENSORS: Failed to read BMP180[0m
+[0;32mI (69928) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (69934) RELAY: AUTO: Temperature 36.1°C >= 35.0°C, turning relay ON[0m
+[0;32mI (69941) RELAY: 🔌 RELAY_1 (GPIO47) set to ON[0m
+[0;32mI (69946) NVS_STORAGE: Relay state saved: 1[0m
+[0;32mI (69949) RELAY: AUTO: Relay state changed to ON and saved to NVS[0m
+[0;32mI (69955) SENSORS: Auto control using AHT22 temperature: 36.1°C[0m
+[1;31mE (74662) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (74662) SENSORS: Failed to read AHT20[0m
+[1;31mE (74663) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (74664) SENSORS: Failed to read BMP180[0m
+[0;32mI (74669) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (74675) RELAY: AUTO: Temperature 25.0°C <= 25.0°C, turning relay OFF[0m
+[0;32mI (74681) RELAY: 🔌 RELAY_1 (GPIO47) set to OFF[0m
+[0;32mI (74687) NVS_STORAGE: Relay state saved: 0[0m
+[0;32mI (74689) RELAY: AUTO: Relay state changed to OFF and saved to NVS[0m
+[0;32mI (74695) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (74707) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (74967) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (74967) SENSORS: Failed to read AHT20[0m
+[1;31mE (74968) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (74969) SENSORS: Failed to read BMP180[0m
+[0;32mI (74974) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (74980) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (79581) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (79586) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (79587) SENSORS: Failed to read AHT20[0m
+[1;31mE (79587) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (79590) SENSORS: Failed to read BMP180[0m
+[0;32mI (79595) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (79601) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (84597) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (84603) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (84603) SENSORS: Failed to read AHT20[0m
+[1;31mE (84604) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (84606) SENSORS: Failed to read BMP180[0m
+[0;32mI (84611) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (84617) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (84985) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (84985) SENSORS: Failed to read AHT20[0m
+[1;31mE (84986) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (84987) SENSORS: Failed to read BMP180[0m
+[0;32mI (84992) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (84998) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (89612) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (89619) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (89620) SENSORS: Failed to read AHT20[0m
+[1;31mE (89620) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (89622) SENSORS: Failed to read BMP180[0m
+[0;32mI (89626) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (89632) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (94633) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (94638) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (94639) SENSORS: Failed to read AHT20[0m
+[1;31mE (94639) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (94642) SENSORS: Failed to read BMP180[0m
+[0;32mI (94647) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (94652) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (95004) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (95004) SENSORS: Failed to read AHT20[0m
+[1;31mE (95005) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (95006) SENSORS: Failed to read BMP180[0m
+[0;32mI (95011) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (95017) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (99647) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (99653) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (99653) SENSORS: Failed to read AHT20[0m
+[1;31mE (99654) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (99656) SENSORS: Failed to read BMP180[0m
+[0;32mI (99661) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (99667) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (99723) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (99724) SENSORS: Failed to read AHT20[0m
+[1;31mE (99724) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (99725) SENSORS: Failed to read BMP180[0m
+[0;32mI (99730) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (99736) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (104665) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (104665) SENSORS: Failed to read AHT20[0m
+[1;31mE (104666) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (104667) SENSORS: Failed to read BMP180[0m
+[0;32mI (104672) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (104678) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (104690) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (105022) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (105022) SENSORS: Failed to read AHT20[0m
+[1;31mE (105023) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (105024) SENSORS: Failed to read BMP180[0m
+[0;32mI (105029) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (105035) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (109578) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (109578) SENSORS: Failed to read AHT20[0m
+[1;31mE (109579) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (109580) SENSORS: Failed to read BMP180[0m
+[0;32mI (109585) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (109591) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (109604) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (114596) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (114597) SENSORS: Failed to read AHT20[0m
+[1;31mE (114597) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (114599) SENSORS: Failed to read BMP180[0m
+[0;32mI (114603) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (114610) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (114622) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (115041) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (115041) SENSORS: Failed to read AHT20[0m
+[1;31mE (115042) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (115043) SENSORS: Failed to read BMP180[0m
+[0;32mI (115048) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (115054) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (119614) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (119615) SENSORS: Failed to read AHT20[0m
+[1;31mE (119615) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (119616) SENSORS: Failed to read BMP180[0m
+[0;32mI (119621) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (119627) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (119639) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (124633) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (124638) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (124639) SENSORS: Failed to read AHT20[0m
+[1;31mE (124639) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (124642) SENSORS: Failed to read BMP180[0m
+[0;32mI (124647) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (124653) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (125060) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (125060) SENSORS: Failed to read AHT20[0m
+[1;31mE (125061) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (125062) SENSORS: Failed to read BMP180[0m
+[0;32mI (125067) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (125073) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (129649) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (129655) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (129655) SENSORS: Failed to read AHT20[0m
+[1;31mE (129656) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (129659) SENSORS: Failed to read BMP180[0m
+[0;32mI (129664) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (129670) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (129726) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (129727) SENSORS: Failed to read AHT20[0m
+[1;31mE (129727) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (129728) SENSORS: Failed to read BMP180[0m
+[0;32mI (129733) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (129739) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (134667) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (134667) SENSORS: Failed to read AHT20[0m
+[1;31mE (134668) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (134669) SENSORS: Failed to read BMP180[0m
+[0;32mI (134674) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (134680) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (134692) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (135079) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (135079) SENSORS: Failed to read AHT20[0m
+[1;31mE (135080) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (135081) SENSORS: Failed to read BMP180[0m
+[0;32mI (135086) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (135092) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (139583) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (139583) SENSORS: Failed to read AHT20[0m
+[1;31mE (139584) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (139585) SENSORS: Failed to read BMP180[0m
+[0;32mI (139590) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (139596) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (139609) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (144600) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (144601) SENSORS: Failed to read AHT20[0m
+[1;31mE (144601) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (144602) SENSORS: Failed to read BMP180[0m
+[0;32mI (144607) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (144613) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (144625) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (145098) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (145098) SENSORS: Failed to read AHT20[0m
+[1;31mE (145099) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (145100) SENSORS: Failed to read BMP180[0m
+[0;32mI (145105) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (145111) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (149617) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (149622) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (149623) SENSORS: Failed to read AHT20[0m
+[1;31mE (149623) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (149626) SENSORS: Failed to read BMP180[0m
+[0;32mI (149631) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (149637) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (154636) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (154642) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (154642) SENSORS: Failed to read AHT20[0m
+[1;31mE (154642) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (154646) SENSORS: Failed to read BMP180[0m
+[0;32mI (154650) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (154657) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (155117) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (155117) SENSORS: Failed to read AHT20[0m
+[1;31mE (155118) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (155119) SENSORS: Failed to read BMP180[0m
+[0;32mI (155124) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (155130) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (159653) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (159660) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (159660) SENSORS: Failed to read AHT20[0m
+[1;31mE (159661) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (159662) SENSORS: Failed to read BMP180[0m
+[0;32mI (159667) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (159673) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (159738) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (159739) SENSORS: Failed to read AHT20[0m
+[1;31mE (159739) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (159740) SENSORS: Failed to read BMP180[0m
+[0;32mI (159745) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (159751) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (164670) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (164671) SENSORS: Failed to read AHT20[0m
+[1;31mE (164671) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (164672) SENSORS: Failed to read BMP180[0m
+[0;32mI (164677) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (164684) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (164695) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (165136) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (165136) SENSORS: Failed to read AHT20[0m
+[1;31mE (165137) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (165138) SENSORS: Failed to read BMP180[0m
+[0;32mI (165143) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (165149) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (169586) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (169586) SENSORS: Failed to read AHT20[0m
+[1;31mE (169587) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (169588) SENSORS: Failed to read BMP180[0m
+[0;32mI (169593) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (169599) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (169611) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (174602) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (174603) SENSORS: Failed to read AHT20[0m
+[1;31mE (174603) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (174605) SENSORS: Failed to read BMP180[0m
+[0;32mI (174609) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (174615) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (174628) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (175155) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (175155) SENSORS: Failed to read AHT20[0m
+[1;31mE (175156) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (175157) SENSORS: Failed to read BMP180[0m
+[0;32mI (175162) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (175168) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (179621) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (179627) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (179627) SENSORS: Failed to read AHT20[0m
+[1;31mE (179628) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (179631) SENSORS: Failed to read BMP180[0m
+[0;32mI (179636) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (179642) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (184641) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (184648) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (184648) SENSORS: Failed to read AHT20[0m
+[1;31mE (184649) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (184651) SENSORS: Failed to read BMP180[0m
+[0;32mI (184655) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (184662) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (185174) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (185174) SENSORS: Failed to read AHT20[0m
+[1;31mE (185175) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (185176) SENSORS: Failed to read BMP180[0m
+[0;32mI (185181) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (185187) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (189656) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (189661) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (189662) SENSORS: Failed to read AHT20[0m
+[1;31mE (189662) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (189665) SENSORS: Failed to read BMP180[0m
+[0;32mI (189670) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (189676) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (189748) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (189749) SENSORS: Failed to read AHT20[0m
+[1;31mE (189749) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (189750) SENSORS: Failed to read BMP180[0m
+[0;32mI (189755) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (189761) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (194570) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (194571) SENSORS: Failed to read AHT20[0m
+[1;31mE (194571) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (194572) SENSORS: Failed to read BMP180[0m
+[0;32mI (194577) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (194583) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (194595) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (195193) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (195193) SENSORS: Failed to read AHT20[0m
+[1;31mE (195194) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (195195) SENSORS: Failed to read BMP180[0m
+[0;32mI (195200) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (195206) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (199591) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (199597) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (199597) SENSORS: Failed to read AHT20[0m
+[1;31mE (199598) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (199601) SENSORS: Failed to read BMP180[0m
+[0;32mI (199606) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (199612) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (204606) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (204611) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (204612) SENSORS: Failed to read AHT20[0m
+[1;31mE (204612) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (204615) SENSORS: Failed to read BMP180[0m
+[0;32mI (204620) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (204626) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (205212) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (205212) SENSORS: Failed to read AHT20[0m
+[1;31mE (205213) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (205214) SENSORS: Failed to read BMP180[0m
+[0;32mI (205219) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (205225) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (209624) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (209630) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (209631) SENSORS: Failed to read AHT20[0m
+[1;31mE (209631) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (209633) SENSORS: Failed to read BMP180[0m
+[0;32mI (209638) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (209644) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (214641) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (214646) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (214647) SENSORS: Failed to read AHT20[0m
+[1;31mE (214647) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (214650) SENSORS: Failed to read BMP180[0m
+[0;32mI (214655) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (214661) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (215231) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (215231) SENSORS: Failed to read AHT20[0m
+[1;31mE (215232) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (215233) SENSORS: Failed to read BMP180[0m
+[0;32mI (215238) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (215244) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (219663) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (219668) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (219669) SENSORS: Failed to read AHT20[0m
+[1;31mE (219669) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (219672) SENSORS: Failed to read BMP180[0m
+[0;32mI (219677) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (219683) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (219747) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (219747) SENSORS: Failed to read AHT20[0m
+[1;31mE (219748) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (219749) SENSORS: Failed to read BMP180[0m
+[0;32mI (219754) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (219760) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (224575) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (224575) SENSORS: Failed to read AHT20[0m
+[1;31mE (224576) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (224577) SENSORS: Failed to read BMP180[0m
+[0;32mI (224582) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (224588) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (224600) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (225250) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (225250) SENSORS: Failed to read AHT20[0m
+[1;31mE (225251) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (225252) SENSORS: Failed to read BMP180[0m
+[0;32mI (225257) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (225263) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (229591) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (229598) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (229598) SENSORS: Failed to read AHT20[0m
+[1;31mE (229599) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (229601) SENSORS: Failed to read BMP180[0m
+[0;32mI (229606) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (229612) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (234609) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (234615) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (234616) SENSORS: Failed to read AHT20[0m
+[1;31mE (234616) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (234619) SENSORS: Failed to read BMP180[0m
+[0;32mI (234624) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (234630) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (235269) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (235269) SENSORS: Failed to read AHT20[0m
+[1;31mE (235270) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (235271) SENSORS: Failed to read BMP180[0m
+[0;32mI (235276) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (235282) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (239628) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (239633) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (239634) SENSORS: Failed to read AHT20[0m
+[1;31mE (239634) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (239637) SENSORS: Failed to read BMP180[0m
+[0;32mI (239642) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (239648) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (244646) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (244652) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (244652) SENSORS: Failed to read AHT20[0m
+[1;31mE (244652) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (244656) SENSORS: Failed to read BMP180[0m
+[0;32mI (244660) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (244667) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (245288) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (245288) SENSORS: Failed to read AHT20[0m
+[1;31mE (245289) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (245290) SENSORS: Failed to read BMP180[0m
+[0;32mI (245295) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (245301) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (249661) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (249662) SENSORS: Failed to read AHT20[0m
+[1;31mE (249662) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (249663) SENSORS: Failed to read BMP180[0m
+[0;32mI (249668) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (249674) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (249687) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (249736) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (249737) SENSORS: Failed to read AHT20[0m
+[1;31mE (249737) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (249738) SENSORS: Failed to read BMP180[0m
+[0;32mI (249744) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (249749) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (254578) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (254584) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (254584) SENSORS: Failed to read AHT20[0m
+[1;31mE (254584) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (254588) SENSORS: Failed to read BMP180[0m
+[0;32mI (254592) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (254599) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (255307) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (255307) SENSORS: Failed to read AHT20[0m
+[1;31mE (255308) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (255309) SENSORS: Failed to read BMP180[0m
+[0;32mI (255314) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (255320) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (259594) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (259600) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (259600) SENSORS: Failed to read AHT20[0m
+[1;31mE (259601) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (259604) SENSORS: Failed to read BMP180[0m
+[0;32mI (259609) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (259615) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (264616) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (264621) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (264622) SENSORS: Failed to read AHT20[0m
+[1;31mE (264622) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (264625) SENSORS: Failed to read BMP180[0m
+[0;32mI (264630) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (264636) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (265326) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (265326) SENSORS: Failed to read AHT20[0m
+[1;31mE (265327) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (265328) SENSORS: Failed to read BMP180[0m
+[0;32mI (265333) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (265339) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (269630) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (269635) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (269636) SENSORS: Failed to read AHT20[0m
+[1;31mE (269636) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (269639) SENSORS: Failed to read BMP180[0m
+[0;32mI (269644) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (269650) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (274650) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (274657) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (274657) SENSORS: Failed to read AHT20[0m
+[1;31mE (274658) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (274660) SENSORS: Failed to read BMP180[0m
+[0;32mI (274665) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (274671) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (275345) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (275345) SENSORS: Failed to read AHT20[0m
+[1;31mE (275346) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (275347) SENSORS: Failed to read BMP180[0m
+[0;32mI (275352) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (275358) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (279665) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (279671) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (279672) SENSORS: Failed to read AHT20[0m
+[1;31mE (279672) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (279674) SENSORS: Failed to read BMP180[0m
+[0;32mI (279679) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (279685) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (279746) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (279747) SENSORS: Failed to read AHT20[0m
+[1;31mE (279747) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (279748) SENSORS: Failed to read BMP180[0m
+[0;32mI (279753) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (279759) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (284579) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (284580) SENSORS: Failed to read AHT20[0m
+[1;31mE (284580) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (284581) SENSORS: Failed to read BMP180[0m
+[0;32mI (284586) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (284592) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (284604) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (285364) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (285364) SENSORS: Failed to read AHT20[0m
+[1;31mE (285365) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (285366) SENSORS: Failed to read BMP180[0m
+[0;32mI (285371) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (285377) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (289597) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (289597) SENSORS: Failed to read AHT20[0m
+[1;31mE (289598) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (289599) SENSORS: Failed to read BMP180[0m
+[0;32mI (289604) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (289610) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (289622) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (294615) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (294622) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (294622) SENSORS: Failed to read AHT20[0m
+[1;31mE (294623) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (294625) SENSORS: Failed to read BMP180[0m
+[0;32mI (294630) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (294636) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (295383) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (295383) SENSORS: Failed to read AHT20[0m
+[1;31mE (295384) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (295385) SENSORS: Failed to read BMP180[0m
+[0;32mI (295390) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (295396) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (299633) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (299639) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (299639) SENSORS: Failed to read AHT20[0m
+[1;31mE (299640) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (299643) SENSORS: Failed to read BMP180[0m
+[0;32mI (299648) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (299654) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (304655) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (304661) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (304661) SENSORS: Failed to read AHT20[0m
+[1;31mE (304661) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (304664) SENSORS: Failed to read BMP180[0m
+[0;32mI (304669) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (304675) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (305402) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (305402) SENSORS: Failed to read AHT20[0m
+[1;31mE (305403) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (305404) SENSORS: Failed to read BMP180[0m
+[0;32mI (305409) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (305415) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (309668) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (309674) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (309674) SENSORS: Failed to read AHT20[0m
+[1;31mE (309675) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (309678) SENSORS: Failed to read BMP180[0m
+[0;32mI (309684) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (309689) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (309752) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (309753) SENSORS: Failed to read AHT20[0m
+[1;31mE (309753) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (309754) SENSORS: Failed to read BMP180[0m
+[0;32mI (309759) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (309765) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (314586) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (314587) SENSORS: Failed to read AHT20[0m
+[1;31mE (314587) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (314588) SENSORS: Failed to read BMP180[0m
+[0;32mI (314593) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (314599) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (314612) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (315421) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (315421) SENSORS: Failed to read AHT20[0m
+[1;31mE (315422) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (315423) SENSORS: Failed to read BMP180[0m
+[0;32mI (315428) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (315434) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (319600) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (319601) SENSORS: Failed to read AHT20[0m
+[1;31mE (319601) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (319602) SENSORS: Failed to read BMP180[0m
+[0;32mI (319607) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (319613) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (319626) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (324618) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (324619) SENSORS: Failed to read AHT20[0m
+[1;31mE (324619) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (324620) SENSORS: Failed to read BMP180[0m
+[0;32mI (324625) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (324631) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (324645) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (325440) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (325440) SENSORS: Failed to read AHT20[0m
+[1;31mE (325441) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (325442) SENSORS: Failed to read BMP180[0m
+[0;32mI (325447) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (325453) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (329635) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (329636) SENSORS: Failed to read AHT20[0m
+[1;31mE (329636) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (329638) SENSORS: Failed to read BMP180[0m
+[0;32mI (329642) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (329649) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (329660) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (334653) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (334654) SENSORS: Failed to read AHT20[0m
+[1;31mE (334654) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (334655) SENSORS: Failed to read BMP180[0m
+[0;32mI (334660) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (334666) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (334678) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (335459) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (335459) SENSORS: Failed to read AHT20[0m
+[1;31mE (335460) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (335461) SENSORS: Failed to read BMP180[0m
+[0;32mI (335466) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (335472) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (339671) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (339671) SENSORS: Failed to read AHT20[0m
+[1;31mE (339672) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (339673) SENSORS: Failed to read BMP180[0m
+[0;32mI (339678) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (339684) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (339696) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (339753) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (339754) SENSORS: Failed to read AHT20[0m
+[1;31mE (339754) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (339755) SENSORS: Failed to read BMP180[0m
+[0;32mI (339760) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (339766) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (344586) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (344587) SENSORS: Failed to read AHT20[0m
+[1;31mE (344587) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (344588) SENSORS: Failed to read BMP180[0m
+[0;32mI (344593) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (344599) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (344612) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (345478) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (345478) SENSORS: Failed to read AHT20[0m
+[1;31mE (345479) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (345480) SENSORS: Failed to read BMP180[0m
+[0;32mI (345485) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (345491) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (349605) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (349610) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (349611) SENSORS: Failed to read AHT20[0m
+[1;31mE (349611) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (349614) SENSORS: Failed to read BMP180[0m
+[0;32mI (349619) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (349625) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (354621) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (354622) SENSORS: Failed to read AHT20[0m
+[1;31mE (354622) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (354623) SENSORS: Failed to read BMP180[0m
+[0;32mI (354628) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (354634) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (354647) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (355497) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (355497) SENSORS: Failed to read AHT20[0m
+[1;31mE (355498) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (355499) SENSORS: Failed to read BMP180[0m
+[0;32mI (355504) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (355510) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (359639) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (359640) SENSORS: Failed to read AHT20[0m
+[1;31mE (359640) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (359641) SENSORS: Failed to read BMP180[0m
+[0;32mI (359646) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (359652) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (359664) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (364659) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (364665) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (364666) SENSORS: Failed to read AHT20[0m
+[1;31mE (364666) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (364668) SENSORS: Failed to read BMP180[0m
+[0;32mI (364673) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (364679) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (365516) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (365516) SENSORS: Failed to read AHT20[0m
+[1;31mE (365517) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (365518) SENSORS: Failed to read BMP180[0m
+[0;32mI (365523) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (365529) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (369573) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (369578) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (369579) SENSORS: Failed to read AHT20[0m
+[1;31mE (369579) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (369582) SENSORS: Failed to read BMP180[0m
+[0;32mI (369587) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (369593) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (369657) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (369658) SENSORS: Failed to read AHT20[0m
+[1;31mE (369658) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (369659) SENSORS: Failed to read BMP180[0m
+[0;32mI (369664) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (369670) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (374590) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (374591) SENSORS: Failed to read AHT20[0m
+[1;31mE (374591) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (374592) SENSORS: Failed to read BMP180[0m
+[0;32mI (374597) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (374603) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (374615) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (375535) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (375535) SENSORS: Failed to read AHT20[0m
+[1;31mE (375536) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (375537) SENSORS: Failed to read BMP180[0m
+[0;32mI (375542) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (375548) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (379621) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (379626) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (379626) SENSORS: Failed to read AHT20[0m
+[1;31mE (379627) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (379630) SENSORS: Failed to read BMP180[0m
+[0;32mI (379635) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (379641) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (384627) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (384632) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (384633) SENSORS: Failed to read AHT20[0m
+[1;31mE (384633) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (384636) SENSORS: Failed to read BMP180[0m
+[0;32mI (384641) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (384647) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (385554) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (385554) SENSORS: Failed to read AHT20[0m
+[1;31mE (385555) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (385556) SENSORS: Failed to read BMP180[0m
+[0;32mI (385561) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (385567) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (389643) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (389650) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (389651) SENSORS: Failed to read AHT20[0m
+[1;31mE (389651) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (389653) SENSORS: Failed to read BMP180[0m
+[0;32mI (389658) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (389664) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (394660) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (394666) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (394666) SENSORS: Failed to read AHT20[0m
+[1;31mE (394667) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (394670) SENSORS: Failed to read BMP180[0m
+[0;32mI (394675) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (394681) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (395573) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (395573) SENSORS: Failed to read AHT20[0m
+[1;31mE (395574) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (395575) SENSORS: Failed to read BMP180[0m
+[0;32mI (395580) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (395586) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (399576) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (399582) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (399582) SENSORS: Failed to read AHT20[0m
+[1;31mE (399583) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (399586) SENSORS: Failed to read BMP180[0m
+[0;32mI (399591) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (399597) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (399664) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (399664) SENSORS: Failed to read AHT20[0m
+[1;31mE (399665) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (399666) SENSORS: Failed to read BMP180[0m
+[0;32mI (399671) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (399677) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (404597) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (404597) SENSORS: Failed to read AHT20[0m
+[1;31mE (404598) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (404599) SENSORS: Failed to read BMP180[0m
+[0;32mI (404604) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (404610) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (404622) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (405592) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (405592) SENSORS: Failed to read AHT20[0m
+[1;31mE (405593) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (405594) SENSORS: Failed to read BMP180[0m
+[0;32mI (405599) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (405605) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (409611) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (409611) SENSORS: Failed to read AHT20[0m
+[1;31mE (409612) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (409613) SENSORS: Failed to read BMP180[0m
+[0;32mI (409618) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (409624) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (409636) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (414629) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (414636) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (414636) SENSORS: Failed to read AHT20[0m
+[1;31mE (414637) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (414639) SENSORS: Failed to read BMP180[0m
+[0;32mI (414644) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (414650) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (415611) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (415611) SENSORS: Failed to read AHT20[0m
+[1;31mE (415612) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (415613) SENSORS: Failed to read BMP180[0m
+[0;32mI (415618) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (415624) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (419646) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (419652) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (419652) SENSORS: Failed to read AHT20[0m
+[1;31mE (419653) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (419656) SENSORS: Failed to read BMP180[0m
+[0;32mI (419661) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (419667) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (424666) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (424671) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (424672) SENSORS: Failed to read AHT20[0m
+[1;31mE (424672) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (424675) SENSORS: Failed to read BMP180[0m
+[0;32mI (424680) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (424686) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (425630) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (425630) SENSORS: Failed to read AHT20[0m
+[1;31mE (425631) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (425632) SENSORS: Failed to read BMP180[0m
+[0;32mI (425637) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (425643) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[0;32mI (429580) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[1;31mE (429585) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (429586) SENSORS: Failed to read AHT20[0m
+[1;31mE (429586) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (429589) SENSORS: Failed to read BMP180[0m
+[0;32mI (429594) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (429600) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (429671) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (429671) SENSORS: Failed to read AHT20[0m
+[1;31mE (429672) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (429673) SENSORS: Failed to read BMP180[0m
+[0;32mI (429678) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (429684) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (435649) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (435649) SENSORS: Failed to read AHT20[0m
+[1;31mE (435650) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (435651) SENSORS: Failed to read BMP180[0m
+[0;32mI (435656) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (435662) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (445668) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (445668) SENSORS: Failed to read AHT20[0m
+[1;31mE (445669) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (445670) SENSORS: Failed to read BMP180[0m
+[0;32mI (445675) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (445681) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (455687) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (455687) SENSORS: Failed to read AHT20[0m
+[1;31mE (455688) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (455689) SENSORS: Failed to read BMP180[0m
+[0;32mI (455694) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (455700) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (460298) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (460299) SENSORS: Failed to read AHT20[0m
+[1;31mE (460299) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (460300) SENSORS: Failed to read BMP180[0m
+[0;32mI (460305) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (460311) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (465706) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (465706) SENSORS: Failed to read AHT20[0m
+[1;31mE (465707) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (465708) SENSORS: Failed to read BMP180[0m
+[0;32mI (465713) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (465719) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (475725) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (475725) SENSORS: Failed to read AHT20[0m
+[1;31mE (475726) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (475727) SENSORS: Failed to read BMP180[0m
+[0;32mI (475732) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (475738) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (485744) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (485744) SENSORS: Failed to read AHT20[0m
+[1;31mE (485745) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (485746) SENSORS: Failed to read BMP180[0m
+[0;32mI (485751) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (485757) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (490303) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (490303) SENSORS: Failed to read AHT20[0m
+[1;31mE (490304) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (490305) SENSORS: Failed to read BMP180[0m
+[0;32mI (490310) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (490316) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (495763) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (495764) SENSORS: Failed to read AHT20[0m
+[1;31mE (495764) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (495765) SENSORS: Failed to read BMP180[0m
+[0;32mI (495770) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (495776) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (505782) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (505782) SENSORS: Failed to read AHT20[0m
+[1;31mE (505783) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (505784) SENSORS: Failed to read BMP180[0m
+[0;32mI (505789) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (505795) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (515801) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (515801) SENSORS: Failed to read AHT20[0m
+[1;31mE (515802) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (515803) SENSORS: Failed to read BMP180[0m
+[0;32mI (515808) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (515814) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (525820) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (525820) SENSORS: Failed to read AHT20[0m
+[1;31mE (525821) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (525822) SENSORS: Failed to read BMP180[0m
+[0;32mI (525827) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (525833) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (535839) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (535839) SENSORS: Failed to read AHT20[0m
+[1;31mE (535840) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (535841) SENSORS: Failed to read BMP180[0m
+[0;32mI (535846) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (535852) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (545858) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (545859) SENSORS: Failed to read AHT20[0m
+[1;31mE (545859) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (545860) SENSORS: Failed to read BMP180[0m
+[0;32mI (545865) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (545871) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (551335) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (551336) SENSORS: Failed to read AHT20[0m
+[1;31mE (551336) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (551337) SENSORS: Failed to read BMP180[0m
+[0;32mI (551342) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (551348) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (555877) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (555877) SENSORS: Failed to read AHT20[0m
+[1;31mE (555878) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (555879) SENSORS: Failed to read BMP180[0m
+[0;32mI (555884) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (555890) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (565896) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (565896) SENSORS: Failed to read AHT20[0m
+[1;31mE (565897) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (565898) SENSORS: Failed to read BMP180[0m
+[0;32mI (565903) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (565909) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m
+[1;31mE (575915) SENSORS: AHT20 trigger command failed[0m
+[1;31mE (575915) SENSORS: Failed to read AHT20[0m
+[1;31mE (575916) SENSORS: BMP180 temperature command failed[0m
+[1;31mE (575917) SENSORS: Failed to read BMP180[0m
+[0;32mI (575922) NVS_STORAGE: Temperature thresholds loaded: High=35.0°C, Low=25.0°C[0m
+[0;32mI (575928) SENSORS: Auto control using BMP180 temperature: 25.0°C[0m

@@ -10,18 +10,18 @@ if(NOT EXISTS "C:/Espressif/frameworks/esp-idf-v5.4.1/components/bootloader/subp
   file(MAKE_DIRECTORY "C:/Espressif/frameworks/esp-idf-v5.4.1/components/bootloader/subproject")
 endif()
 file(MAKE_DIRECTORY
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader"
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix"
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/tmp"
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/src"
-  "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/tmp"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/src"
+  "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

@@ -64,10 +64,13 @@ static esp_err_t api_sensors_get_handler(httpd_req_t *req)
     
     if (ret != ESP_OK) {
         // Return default values if sensor read fails
-        data.temperature = 25.0;
-        data.humidity = 50.0;
-        data.pressure = 1013.25;
-        data.timestamp = xTaskGetTickCount() / portTICK_PERIOD_MS / 1000;
+        data.aht22_temperature = 25.0;
+        data.aht22_humidity = 50.0;
+        data.aht22_available = false;
+        data.bmp180_temperature = 25.0;
+        data.bmp180_pressure = 1013.25;
+        data.bmp180_available = false;
+        data.timestamp = xTaskGetTickCount() * portTICK_PERIOD_MS;
     }
     
     cJSON *json = cJSON_CreateObject();
@@ -76,9 +79,20 @@ static esp_err_t api_sensors_get_handler(httpd_req_t *req)
         return ESP_FAIL;
     }
     
-    cJSON_AddNumberToObject(json, "temperature", data.temperature);
-    cJSON_AddNumberToObject(json, "humidity", data.humidity);
-    cJSON_AddNumberToObject(json, "pressure", data.pressure);
+    // AHT22 sensor data
+    cJSON *aht22 = cJSON_CreateObject();
+    cJSON_AddNumberToObject(aht22, "temperature", data.aht22_temperature);
+    cJSON_AddNumberToObject(aht22, "humidity", data.aht22_humidity);
+    cJSON_AddBoolToObject(aht22, "available", data.aht22_available);
+    cJSON_AddItemToObject(json, "aht22", aht22);
+    
+    // BMP180 sensor data
+    cJSON *bmp180 = cJSON_CreateObject();
+    cJSON_AddNumberToObject(bmp180, "temperature", data.bmp180_temperature);
+    cJSON_AddNumberToObject(bmp180, "pressure", data.bmp180_pressure);
+    cJSON_AddBoolToObject(bmp180, "available", data.bmp180_available);
+    cJSON_AddItemToObject(json, "bmp180", bmp180);
+    
     cJSON_AddNumberToObject(json, "timestamp", data.timestamp);
     
     char *json_string = cJSON_Print(json);

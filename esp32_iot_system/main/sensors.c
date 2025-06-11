@@ -304,17 +304,21 @@ esp_err_t get_sensor_data(sensor_data_t *data)
     bmp180_data_t bmp_data;
     
     // Set default values
-    data->temperature = 25.0;
-    data->humidity = 50.0;
-    data->pressure = 1013.2;
-    data->timestamp = esp_log_timestamp();
+    data->aht22_temperature = 25.0;
+    data->aht22_humidity = 50.0;
+    data->aht22_available = false;
+    data->bmp180_temperature = 25.0;
+    data->bmp180_pressure = 1013.2;
+    data->bmp180_available = false;
+    data->timestamp = xTaskGetTickCount() * portTICK_PERIOD_MS;
     
     // Try to read AHT20
     esp_err_t aht_ret = read_aht22(&aht_data);
     if (aht_ret == ESP_OK) {
-        data->temperature = aht_data.temperature;
-        data->humidity = aht_data.humidity;
-        // AHT20 reading successful
+        data->aht22_temperature = aht_data.temperature;
+        data->aht22_humidity = aht_data.humidity;
+        data->aht22_available = true;
+        ESP_LOGI(TAG, "AHT22 - Temp: %.1f°C, Humidity: %.1f%%", aht_data.temperature, aht_data.humidity);
     } else {
         ESP_LOGE(TAG, "Failed to read AHT20");
     }
@@ -322,20 +326,24 @@ esp_err_t get_sensor_data(sensor_data_t *data)
     // Try to read BMP180
     esp_err_t bmp_ret = read_bmp180(&bmp_data);
     if (bmp_ret == ESP_OK) {
-        data->pressure = bmp_data.pressure;
-        // Use BMP180 temperature if AHT20 failed
-        if (aht_ret != ESP_OK) {
-            data->temperature = bmp_data.temperature;
-        }
+        data->bmp180_temperature = bmp_data.temperature;
+        data->bmp180_pressure = bmp_data.pressure;
+        data->bmp180_available = true;
+        ESP_LOGI(TAG, "BMP180 - Temp: %.1f°C, Pressure: %.1f hPa", bmp_data.temperature, bmp_data.pressure);
     } else {
         ESP_LOGE(TAG, "Failed to read BMP180");
     }
     
-    ESP_LOGI(TAG, "Sensor Data - Temp: %.1f°C, Humidity: %.1f%%, Pressure: %.1f hPa", 
-             data->temperature, data->humidity, data->pressure);
-    
-    // Simple relay auto control (removed for now to fix compilation)
-    // TODO: Add auto relay control later
+    // Auto relay control if in auto mode (prioritize AHT22 temperature, fallback to BMP180)
+    if (get_relay_mode() == RELAY_MODE_AUTO) {
+        float temp_high = 30.0, temp_low = 20.0;  // Default values
+        storage_load_temp_thresholds(&temp_high, &temp_low);
+        
+        float control_temp = data->aht22_available ? data->aht22_temperature : data->bmp180_temperature;
+        auto_control_relay(control_temp, temp_high, temp_low);
+        ESP_LOGI(TAG, "Auto control using %s temperature: %.1f°C", 
+                 data->aht22_available ? "AHT22" : "BMP180", control_temp);
+    }
     
     return ESP_OK;
 } 

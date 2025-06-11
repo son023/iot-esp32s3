@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Admin/Desktop/esp32_iot_system/main
+# Install script for directory: C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

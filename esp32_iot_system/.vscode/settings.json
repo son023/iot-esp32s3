@@ -1,5 +1,6 @@
 {
     "terminal.integrated.env.windows": {
         "IDF_PATH": "C:\\Espressif\\frameworks\\esp-idf-v5.2.2"
-    }
+    },
+    "idf.pythonInstallPath": "C:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe"
 }

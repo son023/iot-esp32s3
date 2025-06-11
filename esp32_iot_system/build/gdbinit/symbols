@@ -13,8 +13,8 @@ end
 
 # Load bootloader symbols
 set confirm off
-    add-symbol-file C:/Users/Admin/Desktop/esp32_iot_system/build/bootloader/bootloader.elf
+    add-symbol-file C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/bootloader/bootloader.elf
 set confirm on
 
 # Load application symbols
-file C:/Users/Admin/Desktop/esp32_iot_system/build/esp32_iot_system.elf
+file C:/Users/Admin/Desktop/iot-esp32s3/esp32_iot_system/build/esp32_iot_system.elf

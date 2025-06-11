@@ -6,10 +6,10 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "relay_control.h"
+#include "nvs_storage.h"
 
 static const char *TAG = "RELAY";
-static const int relay_pins[NUM_RELAYS] = {RELAY_1_PIN, RELAY_2_PIN, RELAY_3_PIN, RELAY_4_PIN};
-static bool relay_states[NUM_RELAYS] = {false, false, false, false};
+static bool relay_state = false;
 
 // Main relay (Relay 1) control variables
 static relay_mode_t main_relay_mode = RELAY_MODE_MANUAL;
@@ -19,8 +19,7 @@ esp_err_t relay_init(void)
     gpio_config_t io_conf = {
         .intr_type = GPIO_INTR_DISABLE,
         .mode = GPIO_MODE_OUTPUT,
-        .pin_bit_mask = ((1ULL << RELAY_1_PIN) | (1ULL << RELAY_2_PIN) | 
-                        (1ULL << RELAY_3_PIN) | (1ULL << RELAY_4_PIN)),
+        .pin_bit_mask = (1ULL << RELAY_1_PIN),
         .pull_down_en = 0,
         .pull_up_en = 0,
     };
@@ -31,62 +30,28 @@ esp_err_t relay_init(void)
         return ret;
     }
 
-    // Set all relays to OFF initially
-    for (int i = 0; i < NUM_RELAYS; i++) {
-        gpio_set_level(relay_pins[i], 0);
-        relay_states[i] = false;
-    }
+    // Set relay to OFF initially
+    gpio_set_level(RELAY_1_PIN, 0);
+    relay_state = false;
 
     ESP_LOGI(TAG, "Relay control initialized successfully");
     return ESP_OK;
 }
 
-esp_err_t relay_set_state(int relay_num, bool state)
-{
-    if (relay_num < 1 || relay_num > NUM_RELAYS) {
-        ESP_LOGE(TAG, "Invalid relay number: %d", relay_num);
-        return ESP_ERR_INVALID_ARG;
-    }
-
-    int pin = relay_pins[relay_num - 1];
-    // Relay logic: HIGH = ON, LOW = OFF (theo schematic)
-    gpio_set_level(pin, state ? 1 : 0);
-    relay_states[relay_num - 1] = state;
-
-    ESP_LOGI(TAG, "🔌 RELAY_%d (GPIO%d) set to %s", relay_num, pin, state ? "ON" : "OFF");
-    return ESP_OK;
-}
-
-bool relay_get_state(int relay_num)
-{
-    if (relay_num < 1 || relay_num > NUM_RELAYS) {
-        ESP_LOGE(TAG, "Invalid relay number: %d", relay_num);
-        return false;
-    }
-
-    return relay_states[relay_num - 1];
-}
-
-esp_err_t relay_set_all(bool state)
-{
-    for (int i = 0; i < NUM_RELAYS; i++) {
-        gpio_set_level(relay_pins[i], state ? 1 : 0);
-        relay_states[i] = state;
-    }
-
-    ESP_LOGI(TAG, "All relays set to %s", state ? "ON" : "OFF");
-    return ESP_OK;
-}
-
-// Single relay functions (sử dụng Relay 1 làm relay chính)
+// Single relay functions (Main relay only)
 esp_err_t set_relay_state(uint8_t state)
 {
-    return relay_set_state(1, state ? true : false);
+    // Relay logic: HIGH = ON, LOW = OFF (theo schematic)
+    gpio_set_level(RELAY_1_PIN, state ? 1 : 0);
+    relay_state = state ? true : false;
+
+    ESP_LOGI(TAG, "🔌 RELAY_1 (GPIO%d) set to %s", RELAY_1_PIN, state ? "ON" : "OFF");
+    return ESP_OK;
 }
 
 uint8_t get_relay_state(void)
 {
-    return relay_get_state(1) ? 1 : 0;
+    return relay_state ? 1 : 0;
 }
 
 // Auto mode functions
@@ -123,7 +88,9 @@ esp_err_t auto_control_relay(float temperature, float temp_high, float temp_low)
     // Cập nhật relay nếu có thay đổi
     if (new_state != current_state) {
         set_relay_state(new_state ? 1 : 0);
-        ESP_LOGI(TAG, "AUTO: Relay state changed to %s", new_state ? "ON" : "OFF");
+        // Lưu state mới vào NVS khi auto control thay đổi
+        storage_save_relay_state(new_state ? 1 : 0);
+        ESP_LOGI(TAG, "AUTO: Relay state changed to %s and saved to NVS", new_state ? "ON" : "OFF");
     }
     
     return ESP_OK;

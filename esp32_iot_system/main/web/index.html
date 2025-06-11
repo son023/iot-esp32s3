@@ -17,34 +17,71 @@
             <!-- Sensor Data Section -->
             <section class="card">
                 <h2>📊 Sensor Data</h2>
-                <div class="sensor-grid">
-                    <div class="sensor-item">
-                        <div class="sensor-icon">🌡️</div>
-                        <div class="sensor-data">
-                            <span class="sensor-label">Temperature</span>
-                            <span class="sensor-value" id="temperature">--</span>
-                            <span class="sensor-unit">°C</span>
+                <div class="sensors-container">
+                    <!-- AHT22 Sensor Section -->
+                    <div class="sensor-section">
+                        <h3>📡 AHT22 Sensor</h3>
+                        <div class="sensor-grid">
+                            <div class="sensor-item">
+                                <div class="sensor-icon">🌡️</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Temperature</span>
+                                    <span class="sensor-value" id="aht22-temperature">--</span>
+                                    <span class="sensor-unit">°C</span>
+                                </div>
+                            </div>
+                            <div class="sensor-item">
+                                <div class="sensor-icon">💧</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Humidity</span>
+                                    <span class="sensor-value" id="aht22-humidity">--</span>
+                                    <span class="sensor-unit">%</span>
+                                </div>
+                            </div>
+                            <div class="sensor-item">
+                                <div class="sensor-icon">⚡</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Status</span>
+                                    <span class="sensor-value" id="aht22-status">--</span>
+                                    <span class="sensor-unit"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="sensor-item">
-                        <div class="sensor-icon">💧</div>
-                        <div class="sensor-data">
-                            <span class="sensor-label">Humidity</span>
-                            <span class="sensor-value" id="humidity">--</span>
-                            <span class="sensor-unit">%</span>
-                        </div>
-                    </div>
-                    <div class="sensor-item">
-                        <div class="sensor-icon">🌪️</div>
-                        <div class="sensor-data">
-                            <span class="sensor-label">Pressure</span>
-                            <span class="sensor-value" id="pressure">--</span>
-                            <span class="sensor-unit">hPa</span>
+                    
+                    <!-- BMP180 Sensor Section -->
+                    <div class="sensor-section">
+                        <h3>📡 BMP180 Sensor</h3>
+                        <div class="sensor-grid">
+                            <div class="sensor-item">
+                                <div class="sensor-icon">🌡️</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Temperature</span>
+                                    <span class="sensor-value" id="bmp180-temperature">--</span>
+                                    <span class="sensor-unit">°C</span>
+                                </div>
+                            </div>
+                            <div class="sensor-item">
+                                <div class="sensor-icon">🌪️</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Pressure</span>
+                                    <span class="sensor-value" id="bmp180-pressure">--</span>
+                                    <span class="sensor-unit">hPa</span>
+                                </div>
+                            </div>
+                            <div class="sensor-item">
+                                <div class="sensor-icon">⚡</div>
+                                <div class="sensor-data">
+                                    <span class="sensor-label">Status</span>
+                                    <span class="sensor-value" id="bmp180-status">--</span>
+                                    <span class="sensor-unit"></span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="last-update">
-                    Last update: <span id="lastUpdate">Never</span>
+                    Last reading: <span id="lastUpdate">Never</span>
                 </div>
             </section>
 
@@ -100,22 +137,6 @@
                 </form>
             </section>
 
-            <!-- WiFi Configuration Section -->
-            <section class="card">
-                <h2>📶 WiFi Configuration</h2>
-                <form class="wifi-form" onsubmit="configureWifi(event)">
-                    <div class="form-group">
-                        <label for="ssid">Network Name (SSID):</label>
-                        <input type="text" id="ssid" name="ssid" placeholder="Enter WiFi SSID" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" name="password" placeholder="Enter WiFi password" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Update WiFi</button>
-                </form>
-            </section>
-
             <!-- System Status Section -->
             <section class="card">
                 <h2>⚡ System Status</h2>
@@ -135,10 +156,6 @@
                 </div>
             </section>
         </main>
-
-        <footer>
-            <p>&copy; 2025 ESP32 IoT System | Made with ❤️</p>
-        </footer>
     </div>
 
     <!-- Toast Notification -->

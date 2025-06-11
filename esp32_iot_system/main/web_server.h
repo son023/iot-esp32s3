@@ -7,16 +7,7 @@
 extern "C" {
 #endif
 
-/**
- * @brief Initialize and start the web server
- */
 void init_webserver(void);
-
-/**
- * @brief Stop the web server
- * 
- * @param server HTTP server handle
- */
 void stop_webserver(httpd_handle_t server);
 
 #ifdef __cplusplus
