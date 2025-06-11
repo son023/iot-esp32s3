@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP32 IoT System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 ESP32 IoT System</h1>
+            <p>Real-time monitoring and control</p>
+        </header>
+
+        <main>
+            <!-- Sensor Data Section -->
+            <section class="card">
+                <h2>📊 Sensor Data</h2>
+                <div class="sensor-grid">
+                    <div class="sensor-item">
+                        <div class="sensor-icon">🌡️</div>
+                        <div class="sensor-data">
+                            <span class="sensor-label">Temperature</span>
+                            <span class="sensor-value" id="temperature">--</span>
+                            <span class="sensor-unit">°C</span>
+                        </div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-icon">💧</div>
+                        <div class="sensor-data">
+                            <span class="sensor-label">Humidity</span>
+                            <span class="sensor-value" id="humidity">--</span>
+                            <span class="sensor-unit">%</span>
+                        </div>
+                    </div>
+                    <div class="sensor-item">
+                        <div class="sensor-icon">🌪️</div>
+                        <div class="sensor-data">
+                            <span class="sensor-label">Pressure</span>
+                            <span class="sensor-value" id="pressure">--</span>
+                            <span class="sensor-unit">hPa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="last-update">
+                    Last update: <span id="lastUpdate">Never</span>
+                </div>
+            </section>
+
+            <!-- Relay Control Section -->
+            <section class="card">
+                <h2>🔌 Relay Control</h2>
+                <div class="relay-control">
+                    <div class="relay-info">
+                        <div class="relay-status">
+                            <span class="status-label">Status:</span>
+                            <span class="status-indicator" id="relayStatus">OFF</span>
+                        </div>
+                        <div class="relay-mode">
+                            <span class="status-label">Mode:</span>
+                            <span class="mode-indicator" id="relayMode">MANUAL</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-controls">
+                        <button class="btn btn-secondary" onclick="setRelayMode(0)" id="manualBtn">Manual</button>
+                        <button class="btn btn-warning" onclick="setRelayMode(1)" id="autoBtn">Auto</button>
+                    </div>
+                    
+                    <div class="relay-buttons" id="manualControls">
+                        <button class="btn btn-success" onclick="setRelay(1)">Turn ON</button>
+                        <button class="btn btn-danger" onclick="setRelay(0)">Turn OFF</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Temperature Thresholds Section -->
+            <section class="card">
+                <h2>🌡️ Auto Control Settings</h2>
+                <form class="threshold-form" onsubmit="setThresholds(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tempHigh">High Temp (°C):</label>
+                            <input type="number" id="tempHigh" name="tempHigh" 
+                                   min="0" max="100" step="0.1" value="30" required>
+                            <small>Relay ON when temp ≥ this value</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tempLow">Low Temp (°C):</label>
+                            <input type="number" id="tempLow" name="tempLow" 
+                                   min="0" max="100" step="0.1" value="25" required>
+                            <small>Relay OFF when temp ≤ this value</small>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update Thresholds</button>
+                    <div class="threshold-info">
+                        <p><strong>Current:</strong> High = <span id="currentHigh">30.0</span>°C, Low = <span id="currentLow">25.0</span>°C</p>
+                    </div>
+                </form>
+            </section>
+
+            <!-- WiFi Configuration Section -->
+            <section class="card">
+                <h2>📶 WiFi Configuration</h2>
+                <form class="wifi-form" onsubmit="configureWifi(event)">
+                    <div class="form-group">
+                        <label for="ssid">Network Name (SSID):</label>
+                        <input type="text" id="ssid" name="ssid" placeholder="Enter WiFi SSID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" placeholder="Enter WiFi password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update WiFi</button>
+                </form>
+            </section>
+
+            <!-- System Status Section -->
+            <section class="card">
+                <h2>⚡ System Status</h2>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">Connection:</span>
+                        <span class="status-value connected" id="connectionStatus">Connected</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Auto Refresh:</span>
+                        <span class="status-value" id="autoRefreshStatus">ON</span>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <button class="btn btn-secondary" onclick="refreshData()">🔄 Refresh Now</button>
+                    <button class="btn btn-secondary" onclick="toggleAutoRefresh()">⏱️ Toggle Auto</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 ESP32 IoT System | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 

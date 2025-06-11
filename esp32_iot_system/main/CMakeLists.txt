@@ -1,0 +1,24 @@
+idf_component_register(
+    SRCS 
+        "main.c"
+        "wifi_manager.c"
+        "web_server.c"
+        "sensors.c"
+        "relay_control.c"
+        "nvs_storage.c"
+        "i2c_scanner.c"
+    INCLUDE_DIRS "."
+    EMBED_FILES
+        "web/index.html"
+        "web/style.css"
+        "web/script.js"
+    REQUIRES 
+        "driver" 
+        "esp_wifi" 
+        "esp_http_server" 
+        "nvs_flash"
+        "esp_event"
+        "freertos"
+        "json"
+        "esp_system"
+) 

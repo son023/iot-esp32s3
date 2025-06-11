@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.windows": {
+        "IDF_PATH": "C:\\Espressif\\frameworks\\esp-idf-v5.2.2"
+    }
+}
